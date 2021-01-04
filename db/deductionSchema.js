@@ -69,7 +69,7 @@ const Deduction=mongoose.Schema({
         default:false  
       },
        accepted_date:Date,
-       save_options:String,
+       save_options:{type:String,default:'Approve'},
        calculated_date:Date,
        seen_date:Date,
        redone:{type:Boolean,default:false} //redone from team leader
@@ -89,10 +89,10 @@ const Deduction=mongoose.Schema({
     },
     /**calculated spending day places */
     c_spending_days:[{
-      breakfast:{s_id:String,type:{type:String},duration:Number,place_id:String,climate_place:String,project_allowance:String,scale:Number,c_scale:Number}, 
-      lunch:{s_id:String,type:{type:String},duration:Number,place_id:String,climate_place:String,project_allowance:String,scale:Number,c_scale:Number},
-      dinner:{s_id:String,type:{type:String},duration:Number,place_id:String,climate_place:String,project_allowance:String,scale:Number,c_scale:Number},
-      bed:{s_id:String,type:{type:String},duration:Number,place_id:String,climate_place:String,project_allowance:String,scale:Number,c_scale:Number}  
+  s_id:String,type:{type:String},
+  duration:Number,place_id:String,
+  climate_place:String,project_allowance:String,
+  scale:Number,c_scale:Number
     }],
     f_tl_approve:{
         seen:{type:Boolean,default:false},
@@ -102,6 +102,7 @@ const Deduction=mongoose.Schema({
           },
         comment:String,
         approved_date:Date,
+        redone:{type:Boolean,default:false}
     },
     totall_amount:Number,
     difference_amount:Number,
@@ -111,8 +112,9 @@ const Deduction=mongoose.Schema({
     created_date:{
         type:Date,
         default:Date.now
-    }
-})
+    },
+    c_seen:{type:Boolean,default:false}  //completed seen  set true if final result is seen by the user
+ })
 
 /** */
 const deduction=new mongoose.model('Deduction',Deduction)

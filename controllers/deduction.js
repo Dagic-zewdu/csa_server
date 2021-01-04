@@ -57,7 +57,6 @@ const editDeduction=async (req,res)=>{
         let decrypt = decrptObject(req.body.data)
         let { _id } = decrypt
         let Id = _id ? true : false
-        console.log(decrypt)
       if (Id) {
             /**updating  */
             const Update = await Deduction.findByIdAndUpdate(_id, decrypt)

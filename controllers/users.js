@@ -91,7 +91,7 @@ const Login = async (req, res) => {
                 //encrypting response
                 let encrypt = encryptObject({
                     login: true, error:false, Token, message: 'welcome', 
-                    user_type, id: _id ,access
+                    user_type, id: _id ,access ,emp_id
                 })
                 //sending response
                 res.send(encrypt)
