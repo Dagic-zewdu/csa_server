@@ -23,7 +23,7 @@ app.use(route)
 const server = require('http').createServer(app);
 const io = socketIo(server, {
    cors: {
-     origin: "http://192.168.137.1:3000",
+     origin: "http://192.168.8.101:3000",
      methods: ["GET", "POST" , "PUT"],
      allowedHeaders: ["my-custom-header"],
      credentials: true
