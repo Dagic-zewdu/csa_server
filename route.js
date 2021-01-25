@@ -16,10 +16,8 @@ const { getConfig, createConfigaration, editConfig } = require('./controllers/co
 const { createCompany, getCompany, editCompany } = require('./controllers/company')
 const { uploadFile, deleteFile, letterFiles } = require('./controllers/upload')
 const { adminAuth,userauth } = require('./auth/authRoute')
-const { createLetter, getLetters } = require('./controllers/letter')
 const { getAllowances, createAllowance, General_editAllowance, DeleteAllowance } = require('./controllers/allowance')
 const { getClimatePlaces, createClimatePlaces, createClimatePlace, updateGeneralName, removePlaces } = require('./controllers/climatePlaces')
-const { encryptObject } = require('./auth/encrypt')
 const { getDeductions, createDeduction, editDeduction, deleteDeduction } = require('./controllers/deduction')
 /**Employee route */
 router.get('/api/employee', getEmployees)
@@ -81,12 +79,6 @@ router.route('/api/company')
   .get(getCompany)              //getting company data
   .post(createCompany)          //for saving company info
   .put(adminAuth,editCompany)    //for editing company info
-/**Letters router */
-router.route('/api/letters')
-  .get(getLetters)              //getting letters info
-  .post(userauth,createLetter)              //for creating letters
-router.route('/api/uploadLetterFiles')
-  .post(letterFiles) //uploading letter files
 /**Allowance routes */
 router.route('/api/allowances')
   .get(getAllowances)

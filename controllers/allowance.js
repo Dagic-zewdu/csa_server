@@ -26,7 +26,6 @@ const generateId = async () => {
     /**if it 0 return zero else add a value */
     let getIndex = find.length? parseInt(split[1]) + 1 : 0 
     //concatinate the string
-    console.log(getIndex)
     let id = 'csa-' + getIndex.toString()
     return id
 }

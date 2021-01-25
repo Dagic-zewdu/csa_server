@@ -1,39 +1,35 @@
 const mongoose= require('mongoose')
+
+
 /**creating users(emplooyee) */
 const Letter=mongoose.Schema({
-    letter_date:{
-        type:String,
-        required:true
-    },
-    project_name:String,
-    project_code:String,
-    number:{
-        type:String,
-        required:true
-    },
-    title:{
-        type:String,
-        required:true
-    },
-    body:{
-        type:String,
-        required:true
-    },
-    files:[{name:String}],
-    conseucative:Boolean,
-    participants:[{emp_id:String}],
-    initial_phase:[
-        {
-            emp_id:String,
-            level:Number
-        }
-    ],
-    accepted_phase:[{emp_id:String,level:Number}],
-    approval_phase:[{emp_id:String,level:Number}],
-    denied:[{emp_id:String,level:Number}],
-    commented:[{emp_id:String,level:Number}],
-    saveOptions:String,
-    creater:String         //employee id of the creater
+   id:{type:String,required:true,unique:true},
+   creater:{type:String,required:true},
+   type:{type:String,required:true},
+   title:{type:String,required:true},
+   description:{type:String,required:true},
+   participants:[{
+       emp_id:String,
+       recieved_date:Date,
+       seen:{type:Boolean,default:false}
+     }],
+   approval_manager:[{
+       emp_id:String,
+       step:Number,
+       status:{type:String,default:'waiting'},
+       seen:{type:Boolean,default:false},
+       seen_date:Date,
+       approved_date:Date
+   }],
+   objective:String,
+   initial_place:String,
+   destination_place:String,
+   initial_date:Date,
+   return_date:Date,
+   project_name:String,
+   program:String,
+   created_date:{type:Date,default:Date.now},
+   
 })
 
 /** */

@@ -25,8 +25,6 @@ const io = socketIo(server, {
    cors: {
      origin: "http://192.168.8.101:3000",
      methods: ["GET", "POST" , "PUT"],
-     allowedHeaders: ["my-custom-header"],
-     credentials: true
    }
  });
 webSocket(io)
