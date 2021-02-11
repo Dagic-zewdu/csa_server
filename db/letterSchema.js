@@ -19,7 +19,8 @@ const Letter=mongoose.Schema({
        status:{type:String,default:'waiting'},
        seen:{type:Boolean,default:false},
        seen_date:Date,
-       approved_date:Date
+       approved_date:Date,
+       comment:String
    }],
    objective:String,
    initial_place:String,

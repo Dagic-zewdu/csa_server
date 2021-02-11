@@ -19,6 +19,8 @@ const { adminAuth,userauth } = require('./auth/authRoute')
 const { getAllowances, createAllowance, General_editAllowance, DeleteAllowance } = require('./controllers/allowance')
 const { getClimatePlaces, createClimatePlaces, createClimatePlace, updateGeneralName, removePlaces } = require('./controllers/climatePlaces')
 const { getDeductions, createDeduction, editDeduction, deleteDeduction } = require('./controllers/deduction')
+const { DeleteLetterMessage, SaveMessage, GetMessages } = require('./controllers/messages')
+const { GetLetters, DeleteLetter, EditLetter } = require('./controllers/letter')
 /**Employee route */
 router.get('/api/employee', getEmployees)
 router.post('/api/createEmployee',adminAuth ,create)
@@ -96,4 +98,15 @@ router.get('/api/date',(req,res)=>{
   let date=Date.now()
   res.status(200).send({date:Date.now()})  
 })
+/**message */
+router.route('/api/messages')
+.post(userauth,SaveMessage) // for creating messages
+.get(GetMessages)   //for getting all messages
+router.put ('/api/delMessages',userauth,DeleteLetterMessage) //deleting multiple messages
+
+/**Letters */
+router.route('/api/letter').put(userauth,EditLetter) //Edit letter
+router.route('/api/letters')
+.get(GetLetters)   //getting letters data
+.put(DeleteLetter)   //for deleting letter
 module.exports = router

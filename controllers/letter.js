@@ -1,8 +1,17 @@
 const Letter = require('../db/letterSchema')
-const Employee=require('../db/employeeSchema')
+const { encryptObject,decrptObject } = require('../auth/encrypt')
+
 /**getting all letters arrray of object */
 const getLetters=async ()=>await Letter.find({})
+const GetLetters=async (req,res)=>{
+  try{
+  const letters=await getLetters()
+  res.send(encryptObject(letters))
+  }
+  catch(err){
 
+  }
+}
 /**emits letters for all socket connection
  * @param {*} io-socket io library object for only broadcasting 
  */
@@ -60,7 +69,31 @@ const editLetter=async (data,io)=>{
     console.log(err)
     }
 }
-
+const EditLetter = async (req, res) => {
+    try {
+      //decrypting request
+      let decrypt = decrptObject(req.body.data)
+      //checking _id and emp_id exists
+      let { _id } = decrypt
+      let Id = _id ? true : false
+      if (Id) {
+        /**updating  */
+        const Update = await Letter.findByIdAndUpdate(_id, decrypt)
+        /**encrpting response */
+        const encrypt = encryptObject({ Update, updated: true, error: false })
+        res.send(encrypt)
+      }
+      else {
+        throw new Error('id is not set')
+      }
+    }
+    catch (err) {
+      console.log(err)
+      /**send error */
+      let encrypt = encryptObject({ error: true, message: err })
+      res.send(encrypt)
+    }
+  }
 /**it delete's letter from datatbase
  * @param {*} data- data to update 
  * @param {*} io-socket io library object for only broadcasting
@@ -74,5 +107,24 @@ const deleteLetter=async (data,io)=>{
   console.log(err)
   }
 }
-module.exports = { createLetter, getLetters, editLetter,
-                  deleteLetter , emitLetterrs}
+const DeleteLetter=async (req,res)=>{
+  try {
+    const decrpt = decrptObject(req.body.data)
+    let { _id } = decrpt
+    if (_id === undefined)
+        throw new Error('_id is not set')
+    const del = await Letter.findByIdAndDelete(_id)
+    let encrpt = encryptObject({ del, deleted: true, error: false, message: 'Deleted successfully' })
+    res.send(encrpt)
+}
+catch (err) {
+    console.log(err)
+    let encrpt = encryptObject({
+        deleted: false, error: true,
+        message: 'can not delete please try again later'
+    })
+    res.send(encrpt)
+}
+}
+module.exports = { createLetter, getLetters, editLetter,GetLetters,
+                  deleteLetter , emitLetterrs,DeleteLetter,EditLetter}
