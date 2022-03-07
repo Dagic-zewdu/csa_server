@@ -19,6 +19,10 @@ app.use(bodyParser.urlencoded({ extended : true}));
 app.use(cors())
 /** routes */
 app.use(route)
+app.use(express.static(path.join(__dirname,'build')));
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'build','index.html'))
+})
 /**--socket connection---- */
 const server = require('http').createServer(app);
 const io = socketIo(server, {
