@@ -3,8 +3,9 @@ var fs= require('fs')
 const { decrptObject, encryptObject } = require('../auth/encrypt')
 var path='public/'
    const uploadFile=(req,res)=>{
-       //setting storage
-    var storage = multer.diskStorage({
+       try{
+     //setting storage
+     var storage = multer.diskStorage({
         destination: (req,file,cb)=>{
             cb(null,'public')
         },
@@ -23,6 +24,11 @@ var upload = multer ({storage:storage}).array('file')
         }
         return res.status(200).send({upload:true,error:false})
 })
+       }
+       catch(err){
+console.log(err)
+       }
+  
 }
 const deleteFile=async (req,res)=>{
     try{
