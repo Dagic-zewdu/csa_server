@@ -2,9 +2,19 @@
   "name": "allowance_system",
   "version": "1.0.0",
   "description": "this an allowance system used for companies to reduces manuall calculations",
-  "main": "index.js",
+  "main": "server.js",
+  "bin": "./server.js",
+  "pkg": {
+    "scripts": "build/**/*.js",
+    "assets": [
+      "public/**/*",
+      "build/**/*"
+    ],
+    "outputPath": "dist"
+  },
   "scripts": {
     "start": "node server.js",
+    "build": "sudo pkg . --out-path",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dagic zewdu",
@@ -23,6 +33,7 @@
     "socket.io": "^3.0.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "pkg": "^5.5.2"
   }
 }
