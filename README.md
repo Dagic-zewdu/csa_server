@@ -5,9 +5,6 @@
 
 ![screenshot](./assets/Screen-Shot.png)
 
-Additional description about the project and its features.
-
-> Built using PokeAPI and Involvement API.
 ## Tools used
 
 - Mongoose
@@ -35,9 +32,6 @@ The basic requirements for building the executable are:
 <br>
 <br>
 
-## Getting Started
- 
-This project is configure with webpack.
 ## Available Scripts
 
 In the project directory, you can run:
@@ -50,8 +44,6 @@ Runs the app in the development mode.\
 Open [http://localhost:1111](http://localhost:1111) to view it in the browser.
 
 The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `npm run build`
 
 Builds the app for production to the `dist` folder.\
