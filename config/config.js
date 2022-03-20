@@ -1,4 +1,5 @@
 const config={
+   // db: 'mongodb://127.0.0.1:27017/allowance',
     db:'mongodb+srv://Dagic_zewdu:Oehqa5SYa2umwuCV@mycluster-edpny.mongodb.net/csa?retryWrites=true&w=majority',
     port:process.env.PORT||1111,
     password:'CREnq9ret34201X_gfsd_zvVQMnWKSvsdoj45_ROEIcnvx_789453nM',

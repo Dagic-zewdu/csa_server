@@ -1,4 +1,5 @@
 const express=require('express')
+const randomString=require('randomized-string')
 const app=express()
 const bodyParser=require('body-parser')
 const cors=require('cors')
@@ -11,7 +12,6 @@ const { decrptObject } = require('./auth/encrypt')
 const { disconnect } = require('process')
 const { webSocket } = require('./socket')
 app.use('/static',express.static(path.join(__dirname,'public')));
-
 // compress all response
 app.use(compression())
 app.use(bodyParser.json())
@@ -27,7 +27,7 @@ app.get('*',(req,res)=>{
 const server = require('http').createServer(app);
 const io = socketIo(server, {
    cors: {
-     origin: "http://192.168.8.101:3000",
+     origin: "http://localhost:3000",
      methods: ["GET", "POST" , "PUT"],
    }
  });
