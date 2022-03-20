@@ -13,9 +13,7 @@
     "outputPath": "dist"
   },
   "scripts": {
-    "start": "nodemon server.js",
-    "build": "node server.js",
-    "dist": "sudo pkg .",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dagic zewdu",
