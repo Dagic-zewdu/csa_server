@@ -1,7 +1,9 @@
 
 # csa_server: All things about civil service allowance system
 
-> This allowance calculator developed and designed by Metrix technologies helps customers for easy allowance calculations,letter and tems of referecence (tor) managment. It also have an easy integration to do complicated deductions with improved reporting and and stastical method
+> This allowance calculator developed helps customers for easy allowance calculations,letter and terms of referecence (tor) managment. It also have an easy integration to do complicated deductions with improved reporting and and stastical method
+
+-You can find the frontend repo [here](https://github.com/Dagic-zewdu/csa_client)
 
 ![screenshot](./assets/Screen-Shot.png)
 
