@@ -8,7 +8,7 @@
 -The letter system includes direct writing editing and also setting an audience. The audience can be managers or any employers of the organization.
 -If there is any miscommunication among employees a chat and messaging system is integrated. It facilitates easy communication and avoids any barriers of miscommunication.
 
-Generally. This system has a dashboard to control and monitor your progress and also has an admin side to control an account. You can check out the project with employee id (123) and password(123). You can see [live Demo Link](https://cs-allowance.herokuapp.com/)
+Generally. This system has a dashboard to control and monitor your progress and also has an admin side to control an account. You can check out the project with employee id (123) and password(123). You can see [live Demo Link](https://allowance-system.onrender.com/)
 
 
 - You can find the frontend repo [here](https://github.com/Dagic-zewdu/csa_client)
