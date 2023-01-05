@@ -1,7 +1,17 @@
 
 # csa_server: All things about civil service allowance system
 
-> This allowance calculator developed and designed by Metrix technologies helps customers for easy allowance calculations,letter and tems of referecence (tor) managment. It also have an easy integration to do complicated deductions with improved reporting and and stastical method
+> This allowance calculator developed helps customers for easy allowance calculations,letter and terms of referecence (tor) managment. It also have an easy integration to do complicated deductions with improved reporting and and stastical method.
+
+-  Any allowance data is dynamic but follows a specific structure of the organization. . The allowance is created by employees and passes through approval managers to get the calculation. 
+- Deduction data is raised from allowance data. The employee will fill out the entire form(the place and the date) where he/she had been. After that, it will be calculated by finance employees.
+-The letter system includes direct writing editing and also setting an audience. The audience can be managers or any employers of the organization.
+-If there is any miscommunication among employees a chat and messaging system is integrated. It facilitates easy communication and avoids any barriers of miscommunication.
+
+Generally. This system has a dashboard to control and monitor your progress and also has an admin side to control an account. You can check out the project with employee id (123) and password(123). You can see [live Demo Link](https://allowance-system.onrender.com/)
+
+
+- You can find the frontend repo [here](https://github.com/Dagic-zewdu/csa_client)
 
 ![screenshot](./assets/Screen-Shot.png)
 
@@ -11,10 +21,6 @@
 - Express
 - Node.js
 - socket.io
-
-## Live Demo
-
-[Live Demo Link](https://cs-allowance.herokuapp.com/)
 
 ## Built With
 
